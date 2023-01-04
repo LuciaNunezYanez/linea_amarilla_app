@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.linea_amarilla">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    
    <application
         android:label="linea_amarilla"
         android:icon="@mipmap/ic_launcher">
