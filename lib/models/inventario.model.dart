@@ -24,6 +24,7 @@ class Inventario {
         this.suicidarseInv,
         this.queriaSuicInv,
         this.quitVidaInv,
+        this.puntaje
     });
 
     int? idInventario;
@@ -44,6 +45,7 @@ class Inventario {
     int? suicidarseInv;
     int? queriaSuicInv;
     int? quitVidaInv;
+    int? puntaje;
 
     factory Inventario.fromJson(String str) => Inventario.fromMap(json.decode(str));
 
@@ -68,6 +70,7 @@ class Inventario {
         suicidarseInv: json["suicidarse_inv"] == null ? null : json["suicidarse_inv"],
         queriaSuicInv: json["queria_suic_inv"] == null ? null : json["queria_suic_inv"],
         quitVidaInv: json["quit_vida_inv"] == null ? null : json["quit_vida_inv"],
+        puntaje: json["puntaje"] == null ? null : json["puntaje"],
     );
 
     Map<String, dynamic> toMap() => {
@@ -89,5 +92,6 @@ class Inventario {
         "suicidarse_inv": suicidarseInv == null ? null : suicidarseInv,
         "queria_suic_inv": queriaSuicInv == null ? null : queriaSuicInv,
         "quit_vida_inv": quitVidaInv == null ? null : quitVidaInv,
+        "puntaje": puntaje == null ? null : puntaje,
     };
 }

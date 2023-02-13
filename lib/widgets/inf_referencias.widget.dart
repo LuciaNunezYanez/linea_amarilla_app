@@ -35,7 +35,7 @@ class _CardReferenciasState extends State<CardReferencias> {
           child: Container(
             child: const Center(
                 child: Text(
-              'REFERENCIAS (Opcional)',
+              'REFERENCIA',
               style: TextStyle(fontSize: 16),
             )),
             decoration: BoxDecoration(
@@ -66,28 +66,34 @@ class _CardReferenciasState extends State<CardReferencias> {
                   controller: nombreRefController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.face),
-                    hintText: 'Nombre (s)',
+                    hintText: 'Nombre (Obligatorio)',
                   ),
                   onChanged: (value) {
                     blocRegistro.add(OnGuardarReferencia(nombre_ref: value));
                   },
-                  // validator: (String? value) {
-                  //   if (value == null || value.isEmpty) {
-                  //     return 'Por favor ingrese su nombre';
-                  //   }
-                  //   return null;
-                  // },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 TextFormField(
                   controller: paternoRefController,
                   decoration: const InputDecoration(
-                    hintText: 'Apellido paterno',
+                    hintText: 'Apellido paterno (Obligatorio)',
                     icon: Icon(Icons.fingerprint),
                   ),
                   onChanged: (value) {
                     blocRegistro
                         .add(OnGuardarReferencia(ap_paterno_ref: value));
                   },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 TextFormField(
                   controller: maternoRefController,
@@ -116,12 +122,18 @@ class _CardReferenciasState extends State<CardReferencias> {
                   maxLength: 10,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
-                    hintText: 'Teléfono',
+                    hintText: 'Teléfono (Obligatorio)',
                     icon: Icon(Icons.phone),
                   ),
                   onChanged: (value) {
                     blocRegistro.add(OnGuardarReferencia(telefono_ref: value));
                   },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 SizedBox(
                   height: 20,

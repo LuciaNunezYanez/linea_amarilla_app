@@ -40,8 +40,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           // Guardar credenciales del usuario en el celular
           print('SE INICIO SESIÓN CORRECTAMENTE');
           LoginPreferences _loginP = LoginPreferences();
-          await _loginP.guardarPersona(loginResponse.persona!);
-          await _loginP.guardarDireccion(loginResponse.direccion!);
+          await _loginP.guardarPersona(loginResponse.persona);
+          await _loginP.guardarDireccion(loginResponse.direccion);
+          await _loginP.guardarInventario(loginResponse.inventario);
           
           // Emitir que todo se guardó bien y pasar a la siguiente pantalla.
           emit(state.copyWith(idPersona: loginResponse.persona!.idPersona!));

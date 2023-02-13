@@ -1,4 +1,5 @@
 import 'package:linea_amarilla/models/direccion.model.dart';
+import 'package:linea_amarilla/models/inventario.model.dart';
 import 'package:linea_amarilla/models/persona.model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,49 +18,55 @@ class LoginPreferences {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  Future guardarPersona(Persona paciente) async {
+  Future guardarPersona(Persona? paciente) async {
     // SharedPreferences _prefs = await SharedPreferences.getInstance();
-    _prefs.setInt('idPersona', paciente.idPersona ?? 0);
-    _prefs.setString('fechaHoraRegistroPersona', paciente.fechaHoraRegistroPersona ?? '');
-    _prefs.setString('nombrePersona', paciente.nombrePersona ?? '');
-    _prefs.setString('apPaternoPersona', paciente.apPaternoPersona ?? '');
-    _prefs.setString('apMaternoPersona', paciente.apMaternoPersona ?? '');
-    _prefs.setString('curpPersona', paciente.curpPersona ?? '');
-    _prefs.setString('nacimientoPersona', paciente.nacimientoPersona ?? '');
-    _prefs.setString('generoPersona', paciente.generoPersona ?? '');
-    _prefs.setString('usuarioPersona', paciente.usuarioPersona ?? '');
-    _prefs.setString('tipoPersona', paciente.tipoPersona ?? '');
-    _prefs.setString('correoPersona', paciente.correoPersona ?? '');
-    _prefs.setString('telefonoPersona', paciente.telefonoPersona ?? '');
-    _prefs.setString('parentescoPersona', paciente.parentescoPersona ?? '');
-    _prefs.setInt('fkIdDireccionPersona', paciente.fkIdDireccionPersona ?? 0);
-    _prefs.setInt('fkIdDependenciaPersona', paciente.fkIdDependenciaPersona ?? 0);
-    _prefs.setInt('fkIdPacientePersona', paciente.fkIdPacientePersona ?? 0);
-    _prefs.setInt('fkIdPersonaRegistro', paciente.fkIdPersonaRegistro ?? 0);
+    _prefs.setInt('idPersona', paciente?.idPersona ?? 0);
+    _prefs.setString('fechaHoraRegistroPersona', paciente?.fechaHoraRegistroPersona ?? '');
+    _prefs.setString('nombrePersona', paciente?.nombrePersona ?? '');
+    _prefs.setString('apPaternoPersona', paciente?.apPaternoPersona ?? '');
+    _prefs.setString('apMaternoPersona', paciente?.apMaternoPersona ?? '');
+    _prefs.setString('curpPersona', paciente?.curpPersona ?? '');
+    _prefs.setString('nacimientoPersona', paciente?.nacimientoPersona ?? '');
+    _prefs.setString('generoPersona', paciente?.generoPersona ?? '');
+    _prefs.setString('usuarioPersona', paciente?.usuarioPersona ?? '');
+    _prefs.setString('tipoPersona', paciente?.tipoPersona ?? '');
+    _prefs.setString('correoPersona', paciente?.correoPersona ?? '');
+    _prefs.setString('telefonoPersona', paciente?.telefonoPersona ?? '');
+    _prefs.setString('parentescoPersona', paciente?.parentescoPersona ?? '');
+    _prefs.setInt('fkIdDireccionPersona', paciente?.fkIdDireccionPersona ?? 0);
+    _prefs.setInt('fkIdDependenciaPersona', paciente?.fkIdDependenciaPersona ?? 0);
+    _prefs.setInt('fkIdPacientePersona', paciente?.fkIdPacientePersona ?? 0);
+    _prefs.setInt('fkIdPersonaRegistro', paciente?.fkIdPersonaRegistro ?? 0);
+    
   }
 
-  Future guardarDireccion(Direccion direccion) async {
+  Future guardarDireccion(Direccion? direccion) async {
     // SharedPreferences _prefs = await SharedPreferences.getInstance();
-    _prefs.setInt('idDireccion', direccion.idDireccion ?? 0);
-    _prefs.setString('calle', direccion.calle ?? '');
-    _prefs.setString('numeroExterior', direccion.numeroExterior ?? '');
-    _prefs.setString('numeroInterior', direccion.numeroInterior ?? '');
-    _prefs.setString('colonia', direccion.colonia ?? '');
-    _prefs.setString('cp', direccion.cp ?? '');
-    _prefs.setString('entreCalle', direccion.entreCalle ?? '');
-    _prefs.setString('referencias', direccion.referencias ?? '');
-    _prefs.setInt('fkIdMunicipio', direccion.fkIdMunicipio?? 0);
-    _prefs.setString('localidad', direccion.localidad ?? '');
-    _prefs.setInt('idMunicipios', direccion.idMunicipios ?? 0);
-    _prefs.setInt('estadoId', direccion.estadoId ?? 0);
-    _prefs.setString('claveMunicipio', direccion.claveMunicipio ?? '');
-    _prefs.setString('nombreMunicipio', direccion.nombreMunicipio ?? '');
-    _prefs.setInt('activoMun', direccion.activoMun ?? 0);
-    _prefs.setInt('idEstados', direccion.idEstados ?? 0);
-    _prefs.setString('claveEstado', direccion.claveEstado ?? '');
-    _prefs.setString('nombreEstado', direccion.nombreEstado ?? '');
-    _prefs.setString('abrev', direccion.abrev ?? '');
-    _prefs.setInt('activoEsts', direccion.activoEsts ?? 0);
+    _prefs.setInt('idDireccion', direccion?.idDireccion ?? 0);
+    _prefs.setString('calle', direccion?.calle ?? '');
+    _prefs.setString('numeroExterior', direccion?.numeroExterior ?? '');
+    _prefs.setString('numeroInterior', direccion?.numeroInterior ?? '');
+    _prefs.setString('colonia', direccion?.colonia ?? '');
+    _prefs.setString('cp', direccion?.cp ?? '');
+    _prefs.setString('entreCalle', direccion?.entreCalle ?? '');
+    _prefs.setString('referencias', direccion?.referencias ?? '');
+    _prefs.setInt('fkIdMunicipio', direccion?.fkIdMunicipio?? 0);
+    _prefs.setString('localidad', direccion?.localidad ?? '');
+    _prefs.setInt('idMunicipios', direccion?.idMunicipios ?? 0);
+    _prefs.setInt('estadoId', direccion?.estadoId ?? 0);
+    _prefs.setString('claveMunicipio', direccion?.claveMunicipio ?? '');
+    _prefs.setString('nombreMunicipio', direccion?.nombreMunicipio ?? '');
+    _prefs.setInt('activoMun', direccion?.activoMun ?? 0);
+    _prefs.setInt('idEstados', direccion?.idEstados ?? 0);
+    _prefs.setString('claveEstado', direccion?.claveEstado ?? '');
+    _prefs.setString('nombreEstado', direccion?.nombreEstado ?? '');
+    _prefs.setString('abrev', direccion?.abrev ?? '');
+    _prefs.setInt('activoEsts', direccion?.activoEsts ?? 0);
+  }
+
+  Future guardarInventario(Inventario? inventario) async {
+    // SharedPreferences _prefs = await SharedPreferences.getInstance();
+    _prefs.setInt('puntaje', inventario?.puntaje ?? 0);
   }
 
 
@@ -178,6 +185,11 @@ class LoginPreferences {
   }
   get activoEsts{
     return _prefs.getInt('activoEsts') ?? 0;
+  }
+
+  // INVENTARIO
+  get puntaje{
+    return _prefs.getInt('puntaje') ?? 0;
   }
 
 

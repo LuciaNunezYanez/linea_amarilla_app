@@ -22,14 +22,14 @@ class _DrawerState extends State<DrawerPrincipal> {
                   border: Border(
                       bottom: BorderSide(color: Colors.grey, width: 1.2)),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/fondo_gris_oscuro.jpeg'),
+                      image: AssetImage('assets/images/gris2.jpg'),
                       fit: BoxFit.cover)),
-              // child: Container(
-              //   child: Image(
-              //     image: AssetImage('assets/images/fondo_drawer_2.png'),
-              //     // height: 50,
-              //   ),
-              // ),
+              child: Container(
+                child: Image(
+                  image: AssetImage('assets/images/drawerLA.png'),
+                  // height: 50,
+                ),
+              ),
             ),
           ),
           ListTile(

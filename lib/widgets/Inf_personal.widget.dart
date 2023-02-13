@@ -6,7 +6,7 @@ import 'package:linea_amarilla/blocs/registro/registro_bloc.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 var fechaNacimiento = '';
-var genero = '';
+var genero = 'Hombre';
 var generoInd = 0;
 
 class CardInformacionPersonal extends StatefulWidget {
@@ -171,14 +171,20 @@ class _CardInformacionPersonalState extends State<CardInformacionPersonal> {
                   firstDate: DateTime(1900),
                   lastDate: DateTime.now(),
                   icon: Icon(Icons.event),
-                  fieldLabelText: 'Fecha de nacimiento',
-                  dateLabelText: 'Fecha de nacimiento',
+                  fieldLabelText: 'Fecha de nacimiento (Obligatoria)',
+                  dateLabelText: 'Fecha de nacimiento (Obligatoria)',
                   cancelText: 'Cancelar',
                   confirmText: 'Seleccionar',
                   onChanged: (val) {
                     fechaNacimiento = val;
                     blocRegistro.add(
                         OnGuardarPersonal(nacimiento_persona: fechaNacimiento));
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
                   },
                 ),
                 SizedBox(

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:linea_amarilla/blocs/registro/registro_bloc.dart';
 
 const List<String> municipios = <String>[
-  'Seleccione municipio',
+  'Seleccione municipio (Obligatorio)',
   'Canatlán',
   'Canelas',
   'Coneto de Comonfort',
@@ -78,7 +78,7 @@ class _CardInformacionDireccionState extends State<CardInformacionDireccion> {
           child: Container(
             child: const Center(
                 child: Text(
-              'DOMICILIO (Opcional)',
+              'DOMICILIO',
               style: TextStyle(fontSize: 16),
             )),
             decoration: BoxDecoration(
@@ -109,28 +109,34 @@ class _CardInformacionDireccionState extends State<CardInformacionDireccion> {
                   controller: calleController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.add_road),
-                    hintText: 'Calle',
+                    hintText: 'Calle (Obligatoria)',
                   ),
                   onChanged: (value) {
                     blocRegistro.add(OnGuardarDomicilio(calle: value));
                   },
-                  // validator: (String? value) {
-                  //   if (value == null || value.isEmpty) {
-                  //     return 'Por favor ingrese su nombre';
-                  //   }
-                  //   return null;
-                  // },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 TextFormField(
                   controller: numeroExtController,
                   decoration: const InputDecoration(
-                    hintText: 'Número exterior',
+                    hintText: 'Número exterior (Obligatorio)',
                     icon: Icon(Icons.pin),
                   ),
                   onChanged: (value) {
                     blocRegistro
                         .add(OnGuardarDomicilio(numero_exterior: value));
                   },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 TextFormField(
                   controller: numeroIntController,
@@ -146,12 +152,18 @@ class _CardInformacionDireccionState extends State<CardInformacionDireccion> {
                 TextFormField(
                   controller: coloniaController,
                   decoration: const InputDecoration(
-                    hintText: 'Colonia',
+                    hintText: 'Colonia/Fraccionamiento (Obligatorio)',
                     icon: Icon(Icons.maps_home_work),
                   ),
                   onChanged: (value) {
                     blocRegistro.add(OnGuardarDomicilio(colonia: value));
                   },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 TextFormField(
                   controller: cpController,
@@ -204,17 +216,31 @@ class _CardInformacionDireccionState extends State<CardInformacionDireccion> {
                       child: Text(value),
                     );
                   }).toList(),
+                  validator: (String? value) {
+                    print(value);
+                    if (value == null || value.isEmpty || value.contains('Seleccione')) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
                 TextFormField(
                   controller: localidadController,
                   decoration: const InputDecoration(
-                    hintText: 'Localidad',
+                    hintText: 'Localidad (Obligatorio)',
                     icon: Icon(Icons.place),
                   ),
                   onChanged: (value) {
                     blocRegistro.add(OnGuardarDomicilio(localidad: value));
                   },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Campo obligatorio';
+                    }
+                    return null;
+                  }
                 ),
+                
               ],
             ),
           ],
